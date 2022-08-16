@@ -1,7 +1,7 @@
 
 
 resource "aws_instance" "anami-public-server-1" {
-  ami                         = "ami-0d70546e43a941d70"
+  ami                         = data.aws_ami.ubuntu.id
   instance_type               = "t2.nano"
   key_name                    = "anami-key-pair"
   subnet_id                   = aws_subnet.anami-subnet-1.id
@@ -14,7 +14,7 @@ resource "aws_instance" "anami-public-server-1" {
 }
 
 resource "aws_instance" "anami-private-server-2" {
-  ami                         = "ami-0d70546e43a941d70"
+  ami                         = data.aws_ami.ubuntu.id
   instance_type               = "t2.nano"
   key_name                    = "anami-key-pair"
   subnet_id                   = aws_subnet.anami-subnet-2.id
